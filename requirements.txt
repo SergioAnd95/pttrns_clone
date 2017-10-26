@@ -13,6 +13,7 @@ django-taggit==0.22.1
 gunicorn==19.4.5
 olefile==0.44
 Pillow==4.3.0
+psycopg2==2.7.3.2
 python-memcached==1.58
 pytz==2017.2
 rcssmin==1.0.6
