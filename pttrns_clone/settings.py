@@ -211,6 +211,10 @@ CONSTANCE_CONFIG = {
 
 # Local settings
 
+MIGRATION_MODULES = {
+    'flatpages': 'main.flatpages_migrations',
+}
+
 try:
     from .local_settings import *
 except ImportError:
