@@ -1,93 +1,39 @@
 {% extends 'base.html' %}
+{% load i18n %}
 
-{% block left_sidebar %}
-    {{ form.tags }}
-    <div class="deck">
-        <a href="http://beam.ai/?ref=pttrns" target="_blank" class="deck-link">
-            <svg xmlns="http://www.w3.org/2000/svg" width="120" height="90" viewBox="0 0 120 90">
-                <g fill="none" fill-rule="evenodd">
-                    <rect width="120" height="90" fill="#00FFEF" rx="2"></rect>
-                    <path fill="#363639" d="M60,80 C40.67,80 25,64.33 25,45 C25,25.67 40.67,10 60,10 C79.33,10 95,25.67 95,45 C95,64.33 79.33,80 60,80 Z M51.5625,44.765625 L48.28125,66.640625 L61.40625,66.640625 C67.4468645,66.640625 72.34375,61.7437395 72.34375,55.703125 C72.34375,49.6625105 67.4468645,44.765625 61.40625,44.765625 L51.5625,44.765625 Z M61.40625,22.890625 L54.84375,22.890625 L51.5625,44.765625 L61.40625,44.765625 C67.4468645,44.765625 72.34375,39.8687395 72.34375,33.828125 C72.34375,27.7875105 67.4468645,22.890625 61.40625,22.890625 Z"></path>
-                </g>
-            </svg>
-            <p><span><strong>Beam:</strong> Voice-first communication platform for small, distributed teams.</span></p>
+{% block title %}Mobile Design Patterns - {{ app.name }}{% endblock %}
+
+{% load thumbnail %}
+
+{% block left_sidebar_head %}
+    <section class="application-header ios-application">
+        <a href="{{ app.link }}" target="_blank">
+            {% thumbnail app.logo '120' crop='center' as img %}
+                <img src="{{ img.url }}" class="profile-icon" alt="{{ app.name }}">
+            {% endthumbnail %}
         </a>
-        <a href="mailto:hello@pttrns.com?subject=I%20want%20to%20get%20featured%20on%20pttrns.com&amp;body=Hi,%20I%27d%20like%20to%20learn%20more%20about%20sponsoring%20pttrns.com%20for%201%20week.%0A%0APlease%20send%20me%20more%20details.%0A%0AThank%20you" class="deck-info">
-            <small>Sponsored</small>
-        </a>
-    </div>
-    <section class="filter platforms-filter">
-        <h3>Platforms</h3>
-        <ul>
-            <li>
-                <a href="https://pttrns.com/ios-patterns">iOS</a>
-                <ul>
-                    <li><a href="https://pttrns.com/iphone-patterns">iPhone</a></li>
-                    <li><a href="https://pttrns.com/ipad-patterns">iPad</a></li>
-                    <li><a href="https://pttrns.com/apple-watch-patterns">Watch</a></li>
-                </ul>
-            </li>
-            <li><a href="https://pttrns.com/android-patterns">Android</a></li>
-        </ul>
-    </section>
-    <section class="filter categories-filter">
-        <h3>Categories</h3>
-        <ul>
-            {% for option in form.categories %}
-               <li class="form-block">
-                   <label>
-                       {{ option.tag }}
-                       <span>{{ option.choice_label }}</span>
-                   </label>
-               </li>
-            {% endfor %}
-        </ul>
+        <h2>{{ app.name }}</h2>
     </section>
 {% endblock %}
 
 {% block content %}
-    {% for screenshot in screenshots %}
-        {% include 'catalogue/preview_screenshot.html' %}
-    {% endfor %}
+    {% include page_template with in_app=True %}
 {% endblock %}
 
-{% block right_sidebar %}
-    <section class="filter sort-filter">
-        <h3>Sort by</h3>
-        <ul>
-            {% for option in form.sort_by %}
-                <li class="form-block">
-                   <label>
-                       {{ option.tag }}
-                       <span>{{ option.choice_label }}</span>
-                   </label>
-                </li>
+
+{% block additional %}
+    <div class="lightbox hide" style="will-change: opacity; opacity: 0;">
+        <a href="{{ request.META.HTTP_REFERER }}" class="lightbox-control lightbox-control-app"></a>
+        <span class="lightbox-control lightbox-control-close" >{% trans 'Go ot App shots' %}</span>
+        <span class="lightbox-control lightbox-control-prev" style="display: block; top: 364.5px; left: 40px;"></span>
+        <span class="lightbox-control lightbox-control-next" style="display: block; top: 364.5px; right: 40px;"></span>
+
+        <div class="lightbox-strip">
+            {% for screenshot in screenshots %}
+                <figure class="lightbox-screen" data-screen-id="{{ screenshot.id }}">
+                    <img src="{{ screenshot.image.url }}" data-width="{{ screenshot.image.width }}" data-height="{{ screenshot.image.height }}" alt="">
+                </figure>
             {% endfor %}
-            <li>year</li>
-            <li>
-                <ul class="filter years-filter">
-                    <li><a href="https://pttrns.com/?y=2017">2017</a></li>
-                    <li><a href="https://pttrns.com/?y=2016">2016</a></li>
-                    <li><a href="https://pttrns.com/?y=2015">2015</a></li>
-                    <li><a href="https://pttrns.com/?y=2014">2014</a></li>
-                    <li><a href="https://pttrns.com/?y=2013">2013</a></li>
-                    <li><a href="https://pttrns.com/?y=2012">2012</a></li>
-                </ul>
-            </li>
-        </ul>
-    </section>
-    <section class="filter tags-filter">
-        <h3>Tags</h3>
-        <ul>
-            {% for option in form.tags %}
-                <li class="form-block">
-                   <label>
-                       {{ option.tag }}
-                       <span>{{ option.choice_label }}</span>
-                   </label>
-                </li>
-            {% endfor %}
-        </ul>
-    </section>
-    <div class="border"></div>
+        </div>
+    </div>
 {% endblock %}

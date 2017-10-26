@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80">
+  <g fill="none" fill-rule="evenodd" transform="matrix(-1 0 0 1 80 0)">
+    <ellipse cx="40" cy="40" fill="#7A7A7A" fill-opacity=".5" rx="40" ry="40"/>
+    <polygon fill="#FFFFFF" points="45.519 58 27 40 45.519 22 47 23.44 29.963 40 47 56.56"/>
+  </g>
+</svg>

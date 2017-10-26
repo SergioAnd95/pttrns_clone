@@ -1,9 +1,14 @@
+{% load flatpages %}
+{% load i18n %}
+
+{% get_flatpages as flatpages %}
 <footer class="page-footer">
     <ul>
-        <li><a href="https://blog.pttrns.com/about" target="_blank">About</a></li>
-        <li><a href="mailto:hello@pttrns.com?subject=Hello%20from%20web">Contact</a></li>
-        <li><a href="https://blog.pttrns.com/" title="Blog" target="_blank">Blog</a></li>
-        <li><a href="http://twitter.com/pttrns" title="Follow us @pttrns" target="_blank">Twitter</a></li>
+        {% for page in flatpages %}
+            <li><a href="{{ page.url }}">{{ page.title }}</a></li>
+        {% endfor %}
+        <li><a href="mailto:{{ config.CONTACT_EMAIL }}?subject=Hello%20from%20web">{% trans 'Contact' %}</a></li>
+        <li><a href="{{ config.TWITTER }}" title="Follow us @pttrns" target="_blank">Twitter</a></li>
     </ul>
 </footer>
 

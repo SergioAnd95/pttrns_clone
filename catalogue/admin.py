@@ -1,11 +1,13 @@
 from django.contrib import admin
 
+from modeltranslation.admin import TabbedTranslationAdmin
+
 from . import models
 # Register your models here.
 
 
 @admin.register(models.Category)
-class CategoryAdmin(admin.ModelAdmin):
+class CategoryAdmin(TabbedTranslationAdmin):
     search_fields = ['name', ]
     prepopulated_fields = {'slug': ('name',)}
 
@@ -23,7 +25,7 @@ class ScreenshotInlineAdmin(admin.StackedInline):
 
 
 @admin.register(models.App)
-class AppAdmin(admin.ModelAdmin):
+class AppAdmin(TabbedTranslationAdmin):
     search_fields = ['name', ]
     inlines = [
         ScreenshotInlineAdmin,

@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 
 import os
 
+from django.utils.translation import ugettext_lazy as _
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -31,6 +33,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'modeltranslation',
     'jet.dashboard',
     'jet',
     'django.contrib.admin',
@@ -39,19 +42,26 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
+    'django.contrib.flatpages',
 
     #third-party apps
     'taggit',
     'compressor',
     'sorl.thumbnail',
+    'el_pagination',
+    'constance',
+    'constance.backends.database',
 
     #own apps
     'catalogue',
+    'main',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -72,6 +82,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'constance.context_processors.config',
             ],
         },
     },
@@ -123,6 +134,25 @@ USE_L10N = True
 
 USE_TZ = True
 
+LANGUAGES = [
+    ('en', _('English')),
+    ('ru', _('Russian')),
+]
+
+LOCALE_PATHS = (
+    os.path.join(BASE_DIR, 'locale'),
+)
+
+MODELTRANSLATION_LANGUAGES = ('en', 'ru')
+
+MODELTRANSLATION_TRANSLATION_FILES = (
+    'catalogue.translation',
+    'main.translation',
+)
+
+# Site settings
+
+SITE_ID = 1
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
@@ -142,6 +172,8 @@ STATICFILES_FINDERS = (
     'compressor.finders.CompressorFinder',
 )
 
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+
 # Media files
 
 MEDIA_URL = '/media/'
@@ -156,3 +188,28 @@ CACHES = {
         'LOCATION': '127.0.0.1:11211',
     }
 }
+
+# El pagination settings
+EL_PAGINATION_PER_PAGE = 20
+
+# Django-compressor settings
+COMPRESS_ENABLED = True
+
+# Django-constance settings
+
+CONSTANCE_BACKEND = 'constance.backends.database.DatabaseBackend'
+
+CONSTANCE_CONFIG = {
+    'CONTACT_EMAIL': ('example@mail.com', 'Contact email'),
+    'FOOTER_TEXT': ('© Beyond Labs Inc. All rights reserved.', 'Text for footer part'),
+    'TWITTER': ('https://twitter.com/', 'Twitter link')
+}
+
+
+
+# Local settings
+
+try:
+    from .local_settings import *
+except ImportError:
+    pass

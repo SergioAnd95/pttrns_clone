@@ -1,41 +1,37 @@
 {% load staticfiles %}
+{% load compress %}
+
 <!DOCTYPE html>
 
 <html class="wf-myriadpro-n4-active wf-myriadpro-n6-active wf-active">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    {% block meta %}
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-    <meta name="viewport" content="width=1156">
-    <meta name="description" content="Pttrns is the finest collection of design patterns, resources and inspiration.">
-    <meta name="keywords" content="apps, ios, ui, design, visual design, patterns, pttrns, iphone, retina, screenshots, inspiration, mobile, iphone, ipad, android, lumia, apple watch, internet of things, smartwatch, iot, resources, framerjs, swift, sketch, photoshop, xcode, resources, articles">
-    <meta name="author" content="Beyond Labs, Inc.; Robin Raszka, @robinraszka;">
+        <meta name="viewport" content="width=1156">
+        <meta name="description" content="Pttrns is the finest collection of design patterns, resources and inspiration.">
+        <meta name="keywords" content="apps, ios, ui, design, visual design, patterns, pttrns, iphone, retina, screenshots, inspiration, mobile, iphone, ipad, android, lumia, apple watch, internet of things, smartwatch, iot, resources, framerjs, swift, sketch, photoshop, xcode, resources, articles">
+        <meta name="author" content="Beyond Labs, Inc.; Robin Raszka, @robinraszka;">
 
-    <meta property="og:url" content="https://facebook.com/pttrns.com">
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Design Pttrns">
-    <meta property="og:description" content="Check out the finest collection of design patterns, resources, mobile apps and inspiration">
-    <meta property="fb:app_id" content="548365831994984">
-    <meta property="fb:admins" content="1188756313">
-
-    <title>Mobile Design Patterns - Pttrns</title>
+        <meta property="og:url" content="https://facebook.com/pttrns.com">
+        <meta property="og:type" content="website">
+        <meta property="og:title" content="Design Pttrns">
+        <meta property="og:description" content="Check out the finest collection of design patterns, resources, mobile apps and inspiration">
+    {% endblock %}
+    <title>{% block title %}Mobile Design Patterns - Pttrns{% endblock %}</title>
 
     <link href="https://s3.amazonaws.com/pttrns-2-0-static/favicon.ico" rel="shortcut icon">
     <link href="https://s3.amazonaws.com/pttrns-2-0-static/favicon-152.png" rel="apple-touch-icon-precomposed" sizes="152x152">
     <link href="http://pttrns.com/" hreflang="en-us" rel="alternate">
 
+    {% compress css %}
+        <style type="text/css">.tk-myriad-pro{font-family:"myriad-pro",sans-serif;}</style><style type="text/css">@font-face{font-family:tk-myriad-pro-n4;src:url(https://use.typekit.net/af/c46797/00000000000000000001709a/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3) format("woff2"),url(https://use.typekit.net/af/c46797/00000000000000000001709a/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3) format("woff"),url(https://use.typekit.net/af/c46797/00000000000000000001709a/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3) format("opentype");font-weight:400;font-style:normal;}@font-face{font-family:tk-myriad-pro-n6;src:url(https://use.typekit.net/af/ce7f6f/00000000000000000001709c/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n6&v=3) format("woff2"),url(https://use.typekit.net/af/ce7f6f/00000000000000000001709c/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n6&v=3) format("woff"),url(https://use.typekit.net/af/ce7f6f/00000000000000000001709c/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n6&v=3) format("opentype");font-weight:600;font-style:normal;}</style>
+        <script>try{Typekit.load({ async: true });}catch(e){}</script>
 
-
-    <style type="text/css">.tk-myriad-pro{font-family:"myriad-pro",sans-serif;}</style><style type="text/css">@font-face{font-family:tk-myriad-pro-n4;src:url(https://use.typekit.net/af/c46797/00000000000000000001709a/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3) format("woff2"),url(https://use.typekit.net/af/c46797/00000000000000000001709a/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3) format("woff"),url(https://use.typekit.net/af/c46797/00000000000000000001709a/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3) format("opentype");font-weight:400;font-style:normal;}@font-face{font-family:tk-myriad-pro-n6;src:url(https://use.typekit.net/af/ce7f6f/00000000000000000001709c/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n6&v=3) format("woff2"),url(https://use.typekit.net/af/ce7f6f/00000000000000000001709c/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n6&v=3) format("woff"),url(https://use.typekit.net/af/ce7f6f/00000000000000000001709c/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n6&v=3) format("opentype");font-weight:600;font-style:normal;}</style><script>try{Typekit.load({ async: true });}catch(e){}</script>
-
-
-    <link href="{% static 'css/style.css' %}" rel="stylesheet">
-    <link href="https://pttrns.com/assets/public/css/ads.css" rel="stylesheet">
-
-
-
-
-
-  <style type="text/css">@font-face{font-family:myriad-pro;src:url(https://use.typekit.net/af/c46797/00000000000000000001709a/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3) format("woff2"),url(https://use.typekit.net/af/c46797/00000000000000000001709a/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3) format("woff"),url(https://use.typekit.net/af/c46797/00000000000000000001709a/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3) format("opentype");font-weight:400;font-style:normal;}@font-face{font-family:myriad-pro;src:url(https://use.typekit.net/af/ce7f6f/00000000000000000001709c/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n6&v=3) format("woff2"),url(https://use.typekit.net/af/ce7f6f/00000000000000000001709c/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n6&v=3) format("woff"),url(https://use.typekit.net/af/ce7f6f/00000000000000000001709c/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n6&v=3) format("opentype");font-weight:600;font-style:normal;}</style>
+        <link href="{% static 'css/style.css' %}" rel="stylesheet">
+        <style type="text/css">@font-face{font-family:myriad-pro;src:url(https://use.typekit.net/af/c46797/00000000000000000001709a/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3) format("woff2"),url(https://use.typekit.net/af/c46797/00000000000000000001709a/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3) format("woff"),url(https://use.typekit.net/af/c46797/00000000000000000001709a/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3) format("opentype");font-weight:400;font-style:normal;}@font-face{font-family:myriad-pro;src:url(https://use.typekit.net/af/ce7f6f/00000000000000000001709c/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n6&v=3) format("woff2"),url(https://use.typekit.net/af/ce7f6f/00000000000000000001709c/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n6&v=3) format("woff"),url(https://use.typekit.net/af/ce7f6f/00000000000000000001709c/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n6&v=3) format("opentype");font-weight:600;font-style:normal;}</style>
+        <link rel="stylesheet" href="{% static 'css/nice-select.css' %}">
+    {% endcompress %}
 </head>
 
 
@@ -45,85 +41,67 @@
     {% endblock %}
   <main class="page-main">
       <section class="main-containter">
-          {% block left_sidebar_wrapper %}
+
               <aside class="sidebar left-sidebar">
                   {% block left_sidebar %}
-                  <div class="deck">
-                      <a href="http://beam.ai/?ref=pttrns" target="_blank" class="deck-link">
-                          <svg xmlns="http://www.w3.org/2000/svg" width="120" height="90" viewBox="0 0 120 90">
-                              <g fill="none" fill-rule="evenodd">
-                                  <rect width="120" height="90" fill="#00FFEF" rx="2"></rect>
-                                  <path fill="#363639" d="M60,80 C40.67,80 25,64.33 25,45 C25,25.67 40.67,10 60,10 C79.33,10 95,25.67 95,45 C95,64.33 79.33,80 60,80 Z M51.5625,44.765625 L48.28125,66.640625 L61.40625,66.640625 C67.4468645,66.640625 72.34375,61.7437395 72.34375,55.703125 C72.34375,49.6625105 67.4468645,44.765625 61.40625,44.765625 L51.5625,44.765625 Z M61.40625,22.890625 L54.84375,22.890625 L51.5625,44.765625 L61.40625,44.765625 C67.4468645,44.765625 72.34375,39.8687395 72.34375,33.828125 C72.34375,27.7875105 67.4468645,22.890625 61.40625,22.890625 Z"></path>
-                              </g>
-                          </svg>
-                          <p><span><strong>Beam:</strong> Voice-first communication platform for small, distributed teams.</span></p>
-                      </a>
-                      <a href="mailto:hello@pttrns.com?subject=I%20want%20to%20get%20featured%20on%20pttrns.com&amp;body=Hi,%20I%27d%20like%20to%20learn%20more%20about%20sponsoring%20pttrns.com%20for%201%20week.%0A%0APlease%20send%20me%20more%20details.%0A%0AThank%20you" class="deck-info">
-                          <small>Sponsored</small>
-                      </a>
-                  </div>
-                  <section class="filter platforms-filter">
-                      <h3>Platforms</h3>
-                      <ul>
-                          <li>
-                              <a href="https://pttrns.com/ios-patterns">iOS</a>
-                              <ul>
-                                  <li><a href="https://pttrns.com/iphone-patterns">iPhone</a></li>
-                                  <li><a href="https://pttrns.com/ipad-patterns">iPad</a></li>
-                                  <li><a href="https://pttrns.com/apple-watch-patterns">Watch</a></li>
-                              </ul>
-                          </li>
-                          <li><a href="https://pttrns.com/android-patterns">Android</a></li>
-                      </ul>
-                  </section>
+                      {% block left_sidebar_head %}
+                      <div class="deck">
+                          <a href="http://beam.ai/?ref=pttrns" target="_blank" class="deck-link">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="120" height="90" viewBox="0 0 120 90">
+                                  <g fill="none" fill-rule="evenodd">
+                                      <rect width="120" height="90" fill="#00FFEF" rx="2"></rect>
+                                      <path fill="#363639" d="M60,80 C40.67,80 25,64.33 25,45 C25,25.67 40.67,10 60,10 C79.33,10 95,25.67 95,45 C95,64.33 79.33,80 60,80 Z M51.5625,44.765625 L48.28125,66.640625 L61.40625,66.640625 C67.4468645,66.640625 72.34375,61.7437395 72.34375,55.703125 C72.34375,49.6625105 67.4468645,44.765625 61.40625,44.765625 L51.5625,44.765625 Z M61.40625,22.890625 L54.84375,22.890625 L51.5625,44.765625 L61.40625,44.765625 C67.4468645,44.765625 72.34375,39.8687395 72.34375,33.828125 C72.34375,27.7875105 67.4468645,22.890625 61.40625,22.890625 Z"></path>
+                                  </g>
+                              </svg>
+                              <p><span><strong>Beam:</strong> Voice-first communication platform for small, distributed teams.</span></p>
+                          </a>
+                          <a href="mailto:hello@pttrns.com?subject=I%20want%20to%20get%20featured%20on%20pttrns.com&amp;body=Hi,%20I%27d%20like%20to%20learn%20more%20about%20sponsoring%20pttrns.com%20for%201%20week.%0A%0APlease%20send%20me%20more%20details.%0A%0AThank%20you" class="deck-info">
+                              <small>Sponsored</small>
+                          </a>
+                      </div>
+                      {% endblock %}
 
-                  <section class="filter categories-filter">
-                      <h3>Categories</h3>
-                      <ul>
-                          <li><a href="https://pttrns.com/?scid=7">About</a></li>
-                          <li><a href="https://pttrns.com/?scid=21">Activity Feeds</a></li>
-                          <li><a href="https://pttrns.com/?scid=56">Ask Permission</a></li>
-                          <li><a href="https://pttrns.com/?scid=36">Book</a></li>
-                          <li><a href="https://pttrns.com/?scid=67">Bots/Conversations</a></li>
-                          <li><a href="https://pttrns.com/?scid=34">Browser</a></li>
-                          <li><a href="https://pttrns.com/?scid=1">Calculators</a></li>
-                          <li><a href="https://pttrns.com/?scid=4">Calendars &amp; Time</a></li>
-                          <li><a href="https://pttrns.com/?scid=10">Capture</a></li>
-                          <li><a href="https://pttrns.com/?scid=50">Cards</a></li>
-                          <li><a href="https://pttrns.com/?scid=58">Charts</a></li>
-                          <li><a href="https://pttrns.com/?scid=14">Check In</a></li>
-                          <li><a href="https://pttrns.com/?scid=43">Checkout</a></li>
-                          <li><a href="https://pttrns.com/?scid=6">Coach Marks</a></li>
-                          <li><a href="https://pttrns.com/?scid=29">Comments</a></li>
-                          <li><a href="https://pttrns.com/?scid=68">Confirmation</a></li>
-                          <li><a href="https://pttrns.com/?scid=3">Content Screen</a></li>
-                          <li><a href="https://pttrns.com/?scid=39">Coverpage</a></li>
-                          <li><a href="https://pttrns.com/?scid=19">Create Post</a></li>
-                          <li><a href="https://pttrns.com/?scid=46">Discovery</a></li>
-                          <li><a href="https://pttrns.com/?scid=42">Drawing</a></li>
-                          <li><a href="https://pttrns.com/?scid=61">Editing</a></li>
-                          <li><a href="https://pttrns.com/?scid=30">Empty States</a></li>
-                      </ul>
-                  </section>
+                      <section class="filter platforms-filter">
+                          <h3>{{ form.platforms.label }}</h3>
+                          <ul>
+                              {% for option in form.platforms %}
+                                  <li class="form-block">
+                                      <label>
+                                          {{ option.tag }}
+                                          <span>{{ option.choice_label }}</span>
+                                      </label>
+                                  </li>
+                              {% endfor %}
+                          </ul>
+                      </section>
+                      <section class="filter categories-filter">
+                          <h3>{{ form.categories.label }}</h3>
+                          <ul>
+                              {% for option in form.categories %}
+                                  <li class="form-block">
+                                      <label>
+                                          {{ option.tag }}
+                                          <span>{{ option.choice_label }}</span>
+                                      </label>
+                                  </li>
+                              {% endfor %}
+                          </ul>
+                      </section>
+
                   {% endblock %}
               </aside>
-          {% endblock %}
+
 
             {% block  content-wrapper %}
           <section class="main-content">
               <section class="screens">
-                  <div class="screens-content" style="position: relative; width: 1060px; height: 2865px;">
-                      <div class="jscroll-inner">
+                  <div class="screens-content">
+
                           {% block content %}
 
                           {% endblock %}
-                      </div>
                   </div>
 
-                  <div class="screens-pager">
-                      <a href="https://pttrns.com/subscriptions" class="button-primary">Upgrade to Premium and access all 7,101 patterns and more...</a><br>
-                      <a href="https://pttrns.com/sign-in" class="button">Have an account? Sign in</a>
-                  </div>
               </section>
 
         </section>
@@ -132,52 +110,64 @@
       {% block right_sidebar_wrapper %}
           <aside class="sidebar right-sidebar">
               {% block right_sidebar %}
-              <section class="filter sort-filter">
-                  <h3>Sort by</h3>
-                  <ul>
-                      <li><a href="https://pttrns.com/?srtby=popularity_desc">popularity</a></li>
-                      <li><a href="https://pttrns.com/?srtby=added_asc" class="active">date added</a></li>
-                      <li>year</li>
-                      <li>
-                          <ul class="filter years-filter">
-                              <li><a href="https://pttrns.com/?y=2017">2017</a></li>
-                              <li><a href="https://pttrns.com/?y=2016">2016</a></li>
-                              <li><a href="https://pttrns.com/?y=2015">2015</a></li>
-                              <li><a href="https://pttrns.com/?y=2014">2014</a></li>
-                              <li><a href="https://pttrns.com/?y=2013">2013</a></li>
-                              <li><a href="https://pttrns.com/?y=2012">2012</a></li>
-                          </ul>
-                      </li>
-                  </ul>
-              </section>
-
-              <section class="filter tags-filter">
-                  <h3>Tags</h3>
-                  <ul>
-
-                  </ul>
-              </section>
-
-              <div class="border"></div>
+                  <section class="filter sort-filter">
+                      <h3>{{ form.sort_by.label }}</h3>
+                      <ul>
+                          {% for option in form.sort_by %}
+                              <li class="form-block">
+                                  <label>
+                                      {{ option.tag }}
+                                      <span>{{ option.choice_label }}</span>
+                                  </label>
+                              </li>
+                          {% endfor %}
+                          <li>{{ form.year.label }}</li>
+                          <li>
+                              <ul class="filter years-filter">
+                                  {% for option in form.year %}
+                                      <li class="form-block">
+                                          <label>
+                                              {{ option.tag }}
+                                              <span>{{ option.choice_label }}</span>
+                                          </label>
+                                      </li>
+                                  {% endfor %}
+                              </ul>
+                          </li>
+                      </ul>
+                  </section>
+                  <section class="filter tags-filter">
+                      <h3>{{ form.tags.label }}</h3>
+                      <ul>
+                          {% for option in form.tags %}
+                              <li class="form-block">
+                                  <label>
+                                      {{ option.tag }}
+                                      <span>{{ option.choice_label }}</span>
+                                  </label>
+                              </li>
+                          {% endfor %}
+                      </ul>
+                  </section>
+                  <div class="border"></div>
               {% endblock %}
 
               {% block footer %}
                   {% include 'partials/_footer.html' %}
               {% endblock %}
-
-        </aside>
+          </aside>
       {% endblock %}
       </section>
   </main>
 
+    {% block additional %}
 
-
+    {% endblock %}
     <footer>
       <p>
-        © Beyond Labs Inc. All rights reserved.
+        {{ config.FOOTER_TEXT }}
       </p>
     </footer>
-
 
     <p id="back-top" style="display: none;">
       <a href="https://pttrns.com/#top">
@@ -191,14 +181,25 @@
     </p>
 
 
-    <script src="{% static 'js/blockadblock.min.js' %}"></script>
-    <script src="{% static 'js/jquery.min.js' %}"></script>
-    <script src="{% static 'js/masonry.pkgd.min.js' %}"></script>
-    <script src="{% static 'js/jquery.jscroll.min.js' %}"></script>
-    <script src="{% static 'js/jquery.payment.min.js' %}"></script>
-    <script src="{% static 'js/front.min.js' %}"></script>
-    <script src="{% static 'js/script.js' %}"></script>
-    <script async="async" src="{% static 'js/gpt.js' %}"></script>
-    <script src="{% static 'js/qhr8kby.js' %}"></script>
+    {% block scripts %}
+        {% compress js %}
+            <script src="{% static 'js/jquery.min.js' %}"></script>
+            <script src="{% static 'js/jquery.nice-select.js' %}"></script>
+            <script src="{% static 'js/masonry.pkgd.min.js' %}"></script>
+            <script src="{% static 'el-pagination/js/el-pagination.js' %}"></script>
+            <script src="{% static 'el-pagination/js/el-pagination_on_scroll.js' %}"></script>
+
+            <script async="async" src="{% static 'js/gpt.js' %}"></script>
+            <script src="{% static 'js/qhr8kby.js' %}"></script>
+            <script>
+                $.endlessPaginate({
+                    paginateOnScroll: true,
+                    paginateOnScrollMargin: 20
+                });
+            </script>
+            <script src="{% static 'js/animate-1.4.0.min.js' %}"></script>
+            <script src="{% static 'js/script.js' %}"></script>
+        {% endcompress %}
+    {% endblock %}
   </body>
 </html>

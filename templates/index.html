@@ -1,7 +1,6 @@
 {% extends 'base.html' %}
 
-{% block left_sidebar %}
-    {{ form.tags }}
+{% block left_sidebar_head %}
     <div class="deck">
         <a href="http://beam.ai/?ref=pttrns" target="_blank" class="deck-link">
             <svg xmlns="http://www.w3.org/2000/svg" width="120" height="90" viewBox="0 0 120 90">
@@ -16,78 +15,12 @@
             <small>Sponsored</small>
         </a>
     </div>
-    <section class="filter platforms-filter">
-        <h3>Platforms</h3>
-        <ul>
-            <li>
-                <a href="https://pttrns.com/ios-patterns">iOS</a>
-                <ul>
-                    <li><a href="https://pttrns.com/iphone-patterns">iPhone</a></li>
-                    <li><a href="https://pttrns.com/ipad-patterns">iPad</a></li>
-                    <li><a href="https://pttrns.com/apple-watch-patterns">Watch</a></li>
-                </ul>
-            </li>
-            <li><a href="https://pttrns.com/android-patterns">Android</a></li>
-        </ul>
-    </section>
-    <section class="filter categories-filter">
-        <h3>Categories</h3>
-        <ul>
-            {% for option in form.categories %}
-               <li class="form-block">
-                   <label>
-                       {{ option.tag }}
-                       <span>{{ option.choice_label }}</span>
-                   </label>
-               </li>
-            {% endfor %}
-        </ul>
-    </section>
 {% endblock %}
+
 
 {% block content %}
-    {% for screenshot in screenshots %}
-        {% include 'catalogue/preview_screenshot.html' %}
-    {% endfor %}
-{% endblock %}
+    <div id="screenshots">
+        {% include page_template %}
+    </div>
 
-{% block right_sidebar %}
-    <section class="filter sort-filter">
-        <h3>Sort by</h3>
-        <ul>
-            {% for option in form.sort_by %}
-                <li class="form-block">
-                   <label>
-                       {{ option.tag }}
-                       <span>{{ option.choice_label }}</span>
-                   </label>
-                </li>
-            {% endfor %}
-            <li>year</li>
-            <li>
-                <ul class="filter years-filter">
-                    <li><a href="https://pttrns.com/?y=2017">2017</a></li>
-                    <li><a href="https://pttrns.com/?y=2016">2016</a></li>
-                    <li><a href="https://pttrns.com/?y=2015">2015</a></li>
-                    <li><a href="https://pttrns.com/?y=2014">2014</a></li>
-                    <li><a href="https://pttrns.com/?y=2013">2013</a></li>
-                    <li><a href="https://pttrns.com/?y=2012">2012</a></li>
-                </ul>
-            </li>
-        </ul>
-    </section>
-    <section class="filter tags-filter">
-        <h3>Tags</h3>
-        <ul>
-            {% for option in form.tags %}
-                <li class="form-block">
-                   <label>
-                       {{ option.tag }}
-                       <span>{{ option.choice_label }}</span>
-                   </label>
-                </li>
-            {% endfor %}
-        </ul>
-    </section>
-    <div class="border"></div>
 {% endblock %}

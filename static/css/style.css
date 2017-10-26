@@ -865,13 +865,21 @@ h1 a {
     height: 80px
 }
 
-.lightbox-control-close {
+.lightbox-control-app {
     top: 40px;
     left: 40px;
     width: 80px;
     height: 80px;
     background: url("../img/icon-close.svg") no-repeat center center
 }
+
+.lightbox-control-close {
+    top:150px;
+    left: 40px;
+    font-size: 22px;
+    color: #fff;
+}
+
 
 .lightbox-control-prev {
     background: url("../img/icon-prev.svg") no-repeat center center

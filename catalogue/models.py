@@ -38,8 +38,8 @@ class App(models.Model):
     name = models.CharField(_('Name'), max_length=30)
     slug = models.SlugField(_('Slug'))
     when_created = models.DateTimeField(_('When created'), auto_now_add=True)
+    when_updated = models.DateTimeField(_('When updated'), auto_now=True)
     logo = models.ImageField(_('Logo'), upload_to='apps')
-    description = models.TextField(_('Description'), blank=True, null=True)
 
     def __str__(self):
         return self.name

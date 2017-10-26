@@ -15,16 +15,21 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
+from django.conf.urls.i18n import i18n_patterns
 from django.conf import settings
 from django.conf.urls.static import static
-from django.views.generic import TemplateView
+from django.contrib.sitemaps.views import sitemap
 
+from main.sitemap import sitemaps
 
-urlpatterns = [
+urlpatterns = i18n_patterns(
     url(r'^jet/', include('jet.urls', 'jet')),
     url(r'^jet/dashboard/', include('jet.dashboard.urls', 'jet-dashboard')),
     url(r'^admin/', admin.site.urls),
-    url(r'^', include('catalogue.urls'))
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    url(r'^', include('catalogue.urls')),
+    url(r'^i18n/', include('django.conf.urls.i18n')),
+    url(r'^froala_editor/', include('froala_editor.urls')),
+    url(r'^sitemap\.xml$', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
+) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

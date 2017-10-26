@@ -4,6 +4,8 @@ var USERMENU_FADE_DURATION = 250,
 
 var bricks = null;
 
+var $grid = $('.screens-content');
+
 var showMenu = function(menu){
   animate({
     el: menu,
@@ -231,7 +233,6 @@ $(window).on("scroll", function() {
 
 $(document)
   .on('ready', function(){
-    var $grid = $('.screens-content');
 
     screensInit();
     $grid.masonry({
@@ -243,17 +244,6 @@ $(document)
       transitionDuration: 0
     });
 
-
-    $('.screens-content').jscroll({
-      autoTrigger: false,
-      nextSelector: 'a.load-more-btn',
-      contentSelector: '.screens-content',
-      callback: function() {
-
-        $grid.masonry('appended', $(this));
-        screensInit();
-      }
-    });
 
     hidePopup();
 
@@ -279,3 +269,77 @@ $(document)
   		});
   	});
   });
+
+$grid.on('DOMNodeInserted', function(e){$grid.masonry( 'appended', $(".screen:not([style])"))});
+$('select').niceSelect();
+
+(function (grid) {
+
+    var objStr = {};
+    var allFilters = document.querySelectorAll(".filter");
+    var allCheckedRadio = document.querySelectorAll('.filter input:checked');
+
+    //init active checkboxes
+
+    for (var i=0; i<= allCheckedRadio.length-1; i++) {
+        allCheckedRadio[i].parentNode.classList.toggle("checked" + allCheckedRadio[i].name);
+    }
+
+    // Set event listenters to all filters group
+    for (var i = 0; i <= allFilters.length - 1; i++) {
+        allFilters[i].addEventListener("click", function (e) {
+
+            var target = e && e.target || event.srcElement;
+            if (target.tagName === 'INPUT') {
+
+                var label = document.querySelectorAll(".checked" + target.name);
+                target.parentNode.classList.toggle("checked" + target.name);
+                for (var i = label.length - 1; i >= 0; i--) {
+                    if (label[i] !== target.parentNode)
+                        label[i].classList.remove("checked" + target.name);
+                }
+
+                if (target.parentNode.classList.contains("checked" + target.name)) {
+                    objStr[target.name] = target.value;
+                    AJAX(objStr);
+                }
+                else {
+                    delete objStr[target.name];
+                    target.checked = false;
+                    AJAX(objStr);
+                }
+            } else {
+                return
+            }
+
+        });
+    }
+
+    function AJAX(objStr) {
+        var str = '';
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function () {
+            if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
+                document.querySelector("#screenshots").innerHTML = xmlhttp.responseText;
+                $grid.masonry();
+                window.history.pushState('', '', window.location.pathname+'?'+str);
+            } else if(xmlhttp.readyState === 4 && xmlhttp.status !== 200) {
+                alert('Sorry some trouble in server.')
+            }
+        };
+        var counter = 0;
+        for (key in objStr) {
+            if (counter > 0) {
+                str += '&' + key + '=' + objStr[key];
+            } else {
+                str += key + '=' + objStr[key];
+                counter++;
+            }
+
+        }
+
+        xmlhttp.open('GET', window.location.pathname+'?'+str, true);
+        xmlhttp.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+        xmlhttp.send();
+    }
+})($grid);
