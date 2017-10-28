@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}Mobile Design Patterns - {{ app.name }}{% endblock %}
+
+{% load thumbnail %}
+
+{% block left_sidebar_head %}
+    <section class="application-header ios-application">
+        <a href="{{ app.link }}" target="_blank">
+            {% thumbnail app.logo '120' crop='center' as img %}
+                <img src="{{ img.url }}" class="profile-icon" alt="{{ app.name }}">
+            {% endthumbnail %}
+        </a>
+        <h2>{{ app.name }}</h2>
+    </section>
+{% endblock %}
+
+{% block content %}
+    {% include page_template with in_app=True %}
+{% endblock %}
+
+
+{% block additional %}
+    <div class="lightbox hide" style="will-change: opacity; opacity: 0;">
+        <a href="{{ request.META.HTTP_REFERER }}" class="lightbox-control lightbox-control-app"></a>
+        <span class="lightbox-control lightbox-control-close" >{% trans 'Go ot App shots' %}</span>
+        <span class="lightbox-control lightbox-control-prev" style="display: block; top: 364.5px; left: 40px;"></span>
+        <span class="lightbox-control lightbox-control-next" style="display: block; top: 364.5px; right: 40px;"></span>
+
+        <div class="lightbox-strip">
+            {% for screenshot in screenshots %}
+                <figure class="lightbox-screen" data-screen-id="{{ screenshot.id }}">
+                    <img src="{{ screenshot.image.url }}" data-width="{{ screenshot.image.width }}" data-height="{{ screenshot.image.height }}" alt="">
+                </figure>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,11 @@
+
+<footer class="page-footer">
+    <ul>
+        {% for page in get_flatpages() %}
+            <li><a href="{{ page.url }}">{{ page.title }}</a></li>
+        {% endfor %}
+        <li><a href="mailto:{{ config.CONTACT_EMAIL }}?subject=Hello%20from%20web">{{ _('Contact') }}</a></li>
+        <li><a href="{{ config.TWITTER }}" title="Follow us @pttrns" target="_blank">Twitter</a></li>
+    </ul>
+</footer>
+

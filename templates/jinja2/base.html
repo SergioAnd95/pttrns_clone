@@ -6,7 +6,6 @@
 
 <html class="wf-myriadpro-n4-active wf-myriadpro-n6-active wf-active">
 <head>
-    {% cache 600 head_meta_css %}
     {% block meta %}
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
@@ -34,7 +33,6 @@
         <style type="text/css">@font-face{font-family:myriad-pro;src:url(https://use.typekit.net/af/c46797/00000000000000000001709a/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3) format("woff2"),url(https://use.typekit.net/af/c46797/00000000000000000001709a/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3) format("woff"),url(https://use.typekit.net/af/c46797/00000000000000000001709a/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3) format("opentype");font-weight:400;font-style:normal;}@font-face{font-family:myriad-pro;src:url(https://use.typekit.net/af/ce7f6f/00000000000000000001709c/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n6&v=3) format("woff2"),url(https://use.typekit.net/af/ce7f6f/00000000000000000001709c/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n6&v=3) format("woff"),url(https://use.typekit.net/af/ce7f6f/00000000000000000001709c/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n6&v=3) format("opentype");font-weight:600;font-style:normal;}</style>
         <link rel="stylesheet" href="{% static 'css/nice-select.css' %}">
     {% endcompress %}
-    {% endcache %}
 </head>
 
 
@@ -44,6 +42,7 @@
     {% endblock %}
   <main class="page-main">
       <section class="main-containter">
+
               <aside class="sidebar left-sidebar">
                   {% block left_sidebar %}
                       {% block left_sidebar_head %}
@@ -92,6 +91,7 @@
 
                   {% endblock %}
               </aside>
+
 
             {% block  content-wrapper %}
           <section class="main-content">
@@ -154,9 +154,7 @@
               {% endblock %}
 
               {% block footer %}
-                  {% cache 600 footer_p %}
-                      {% include 'partials/_footer.html' %}
-                  {% endcache %}
+                  {% include 'partials/_footer.html' %}
               {% endblock %}
           </aside>
       {% endblock %}
@@ -166,7 +164,6 @@
     {% block additional %}
 
     {% endblock %}
-    {% cache 600 footer_text %}
     <footer>
       <p>
         {{ config.FOOTER_TEXT }}
@@ -183,10 +180,9 @@
         </svg>
       </a>
     </p>
-    {% endcache %}
+
 
     {% block scripts %}
-        {% cache 600 js_scripts %}
         {% compress js %}
             <script src="{% static 'js/jquery.min.js' %}"></script>
             <script src="{% static 'js/jquery.nice-select.js' %}"></script>
@@ -205,7 +201,6 @@
             <script src="{% static 'js/animate-1.4.0.min.js' %}"></script>
             <script src="{% static 'js/script.js' %}"></script>
         {% endcompress %}
-        {% endcache %}
     {% endblock %}
   </body>
 </html>

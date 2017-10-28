@@ -58,6 +58,7 @@ INSTALLED_APPS = [
     #own apps
     'catalogue',
     'main',
+    'advertising',
 ]
 
 MIDDLEWARE = [

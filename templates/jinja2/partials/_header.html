@@ -1,15 +1,12 @@
-{% load i18n %}
-{% load cache %}
-
 <header class="page-header">
-    {% cache 600 header %}<div class="column"><h1><a href="{% url 'index' %}">Pttrns</a></h1>{% endcache %}
-        <form class="lang-select ui-front" action="{% url 'set_language' %}" method="post">
+    <div class="column"><h1><a href="{% url 'index' %}">Pttrns</a></h1>
+        <form class="lang-select ui-front" action="{{ url('set_language') }}" method="post">
             {% csrf_token %}
-            <input name="next" type="hidden" value="{{ redirect_to }}" />
-            <select type="submit" class="selectmenu" name="language" onchange="if(this.value !== 0) { this.form.submit(); }">
-                {% get_current_language as LANGUAGE_CODE %}
-                {% get_available_languages as LANGUAGES %}
-                {% get_language_info_list for LANGUAGES as languages %}
+            <input name="next" type="hidden" value="{{ strip_lang(request.path) }}" />
+            <select class="selectmenu" name="language">
+                {% set LANGUAGE_CODE = get_current_language() %}
+                {% set LANGUAGES =  get_available_languages() %}
+                {% set languages = get_language_info_list(LANGUAGES) %}
                 {% for language in languages %}
                     <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %} selected="selected"{% endif %}>
                         {{ language.code|capfirst }}

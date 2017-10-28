@@ -3,7 +3,13 @@ from django.core.cache import cache
 from django.http import JsonResponse
 from django.conf.urls import url
 
+
 def clearcache_view(request):
+    """
+    view for admin to clear cache
+    :param request: HttpRequest
+    :return: JsonResponse
+    """
     cache.clear()
     return JsonResponse({'status': 'success'})
 

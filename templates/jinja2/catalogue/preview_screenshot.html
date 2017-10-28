@@ -1,0 +1,37 @@
+{% load thumbnail %}
+{% load i18n %}
+
+<figure class="screen" data-screen-id="{{ screenshot.id }}">
+    {% thumbnail screenshot.image '250' crop="center" as img %}
+        <img src="{{ img.url }}" width="250" height="445" alt="{% blocktrans with app_name=screenshot.app.name %}{{ app_name }} Screenshots{% endblocktrans %}">
+    {% endthumbnail %}
+    <figcaption class="screen-meta">
+        {% if in_app %}
+            <a class="screen-meta-link" href="{{ screenshot.app.get_absolute_url }}#{{ screenshot.id }}" data-toggle="lightbox"></a>
+        {% else %}
+            <a class="screen-meta-link" href="{{ screenshot.app.get_absolute_url }}"></a>
+        {% endif %}
+        <h4 class="screen-meta-title">
+            <a href="{{ screenshot.app.link }}" title="Monkey" target="_blank">{{ screenshot.app.name }}</a>
+        </h4>
+        {% if screenshot.tags.count %}
+        <section class="screen-meta-filter">
+            <h5>{% trans 'Tags' %}</h5>
+            <ul>
+                {% for tag in screenshot.tags.all %}
+                    <li><a href="/?tag={{ tag.id }}">{{ tag.name }}</a></li>
+                {% endfor %}
+            </ul>
+        </section>
+        {% endif %}
+        <section class="screen-meta-filter">
+            <h5>{% trans 'Category' %}</h5>
+            <ul>
+                {% for category in screenshot.categories.all %}
+                <li><a href="/?category={{ category.id }}">{{ category.name }}</a></li>
+                {% endfor %}
+            </ul>
+        </section>
+        <section class="screen-meta-actions"></section>
+    </figcaption>
+</figure>

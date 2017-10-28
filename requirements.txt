@@ -6,11 +6,15 @@ django-constance==2.0.0
 django-el-pagination==3.1.0
 django-froala-editor==2.7.1
 django-jet==1.0.6
+django-jinja==2.4.0
+django-jinja2==0.1
 django-modeltranslation==0.12.1
 django-mptt==0.8.7
 django-picklefield==1.0.0
 django-taggit==0.22.1
 gunicorn==19.4.5
+Jinja2==2.9.6
+MarkupSafe==1.0
 olefile==0.44
 Pillow==4.3.0
 psycopg2==2.7.3.2
@@ -19,5 +23,5 @@ pytz==2017.2
 rcssmin==1.0.6
 rjsmin==1.0.12
 six==1.11.0
-sorl-thumbnail==12.3
+sorl-thumbnail==12.4a1
 whitenoise==3.3.1
