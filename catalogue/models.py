@@ -11,16 +11,16 @@ from sorl.thumbnail import get_thumbnail
 
 
 class Category(models.Model):
-    name = models.CharField(_('Name'), max_length=30)
-    slug = models.SlugField(_('Slug'))
+    name = models.CharField(_('Name'), max_length=30, unique=True)
+    slug = models.SlugField(_('Slug'), unique=True)
 
     def __str__(self):
         return self.name
 
 
 class Platform(MPTTModel):
-    name = models.CharField(_('Name'), max_length=30)
-    slug = models.SlugField(_('Slug'))
+    name = models.CharField(_('Name'), max_length=30, unique=True)
+    slug = models.SlugField(_('Slug'), unique=True)
     parent = TreeForeignKey(
         'self',
         null=True,
@@ -36,7 +36,7 @@ class Platform(MPTTModel):
 class App(models.Model):
     link = models.URLField(_('Link'))
     name = models.CharField(_('Name'), max_length=30)
-    slug = models.SlugField(_('Slug'))
+    slug = models.SlugField(_('Slug'), unique=True)
     when_created = models.DateTimeField(_('When created'), auto_now_add=True)
     when_updated = models.DateTimeField(_('When updated'), auto_now=True)
     logo = models.ImageField(_('Logo'), upload_to='apps')
@@ -52,7 +52,7 @@ class App(models.Model):
 class Screenshot(models.Model):
 
     def get_upload_path(self, filename):
-        return os.path.join("screenshots/", self.app.name, filename)
+        return os.path.join("screenshots/", self.app.slug, filename)
 
     image = models.ImageField(_('Image'), upload_to=get_upload_path)
     when_created = models.DateTimeField(_('When created'), auto_now_add=True)
