@@ -11,6 +11,8 @@ django-jinja2==0.1
 django-modeltranslation==0.12.1
 django-mptt==0.8.7
 django-picklefield==1.0.0
+django-robots==3.0
+django-solo==1.1.2
 django-taggit==0.22.1
 gunicorn==19.4.5
 Jinja2==2.9.6
