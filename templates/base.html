@@ -20,7 +20,9 @@
 
         <meta property="og:title" content="{{ meta.title }}">
         <meta property="og:description" content="{{ meta.description }}">
-        <meta property="og:image" content="{{ meta.image.url }}">
+        {% if meta.image %}
+            <meta property="og:image" content="{{ meta.image.url }}">
+        {% endif %}
     {% endblock %}
     <title>{% block title %}{{ config.SITE_TITLE }}{% endblock %}</title>
 
