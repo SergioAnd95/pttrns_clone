@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {{ block.super }} - {{ flatpage.title }}
+{% endblock %}
+
+{% block content-wrapper %}
+    <section class="main-content">
+         <h2 style="margin-bottom: 20px;">{{ flatpage.title }}</h2>
+        <div>
+            {{ flatpage.content|safe }}
+        </div>
+    </section>
+{% endblock %}

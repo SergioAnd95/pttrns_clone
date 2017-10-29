@@ -1,6 +1,7 @@
 {% load staticfiles %}
 {% load compress %}
 {% load cache %}
+{% load advertising %}
 
 <!DOCTYPE html>
 
@@ -47,20 +48,7 @@
               <aside class="sidebar left-sidebar">
                   {% block left_sidebar %}
                       {% block left_sidebar_head %}
-                      <div class="deck">
-                          <a href="http://beam.ai/?ref=pttrns" target="_blank" class="deck-link">
-                              <svg xmlns="http://www.w3.org/2000/svg" width="120" height="90" viewBox="0 0 120 90">
-                                  <g fill="none" fill-rule="evenodd">
-                                      <rect width="120" height="90" fill="#00FFEF" rx="2"></rect>
-                                      <path fill="#363639" d="M60,80 C40.67,80 25,64.33 25,45 C25,25.67 40.67,10 60,10 C79.33,10 95,25.67 95,45 C95,64.33 79.33,80 60,80 Z M51.5625,44.765625 L48.28125,66.640625 L61.40625,66.640625 C67.4468645,66.640625 72.34375,61.7437395 72.34375,55.703125 C72.34375,49.6625105 67.4468645,44.765625 61.40625,44.765625 L51.5625,44.765625 Z M61.40625,22.890625 L54.84375,22.890625 L51.5625,44.765625 L61.40625,44.765625 C67.4468645,44.765625 72.34375,39.8687395 72.34375,33.828125 C72.34375,27.7875105 67.4468645,22.890625 61.40625,22.890625 Z"></path>
-                                  </g>
-                              </svg>
-                              <p><span><strong>Beam:</strong> Voice-first communication platform for small, distributed teams.</span></p>
-                          </a>
-                          <a href="mailto:hello@pttrns.com?subject=I%20want%20to%20get%20featured%20on%20pttrns.com&amp;body=Hi,%20I%27d%20like%20to%20learn%20more%20about%20sponsoring%20pttrns.com%20for%201%20week.%0A%0APlease%20send%20me%20more%20details.%0A%0AThank%20you" class="deck-info">
-                              <small>Sponsored</small>
-                          </a>
-                      </div>
+                          {% show_advertisings 1 %}
                       {% endblock %}
 
                       <section class="filter platforms-filter">
@@ -91,6 +79,7 @@
                       </section>
 
                   {% endblock %}
+                {% show_advertisings 3 %}
               </aside>
 
             {% block  content-wrapper %}
@@ -104,12 +93,12 @@
                   </div>
 
               </section>
-
         </section>
       {% endblock %}
 
       {% block right_sidebar_wrapper %}
           <aside class="sidebar right-sidebar">
+            {% show_advertisings 2 %}
               {% block right_sidebar %}
                   <section class="filter sort-filter">
                       <h3>{{ form.sort_by.label }}</h3>
@@ -153,6 +142,7 @@
                   <div class="border"></div>
               {% endblock %}
 
+                {% show_advertisings 4 %}
               {% block footer %}
                   {% cache 600 footer_p %}
                       {% include 'partials/_footer.html' %}

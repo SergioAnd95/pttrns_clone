@@ -24,10 +24,13 @@ class Advertising(models.Model):
     title = models.CharField(_('Title'), max_length=100)
     when_created = models.DateTimeField(_('When created'),auto_now_add=True)
     when_updated = models.DateTimeField(_('When updated'), auto_now=True)
-    content = FroalaField(_('Content'))
+    content = FroalaField()
     active = models.BooleanField(_('Active'), default=True)
 
+    def __str__(self):
+        return self.title
+
     class Meta:
-        verbose_name_plural = _('Advertising')
+        verbose_name_plural = _('Advertisings')
         verbose_name = _('Advertising')
         ordering = ('position', 'rank')

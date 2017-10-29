@@ -54,11 +54,13 @@ INSTALLED_APPS = [
     'el_pagination',
     'constance',
     'constance.backends.database',
+    'froala_editor',
 
     #own apps
     'catalogue',
-    'main',
     'advertising',
+    'main',
+
 ]
 
 MIDDLEWARE = [
@@ -90,7 +92,7 @@ TEMPLATES = [
         },
     },
 ]
-TEMPLATE_DEBUG = True
+
 WSGI_APPLICATION = 'pttrns_clone.wsgi.application'
 
 
