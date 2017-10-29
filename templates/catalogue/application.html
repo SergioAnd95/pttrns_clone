@@ -1,9 +1,10 @@
 {% extends 'base.html' %}
+
 {% load i18n %}
+{% load thumbnail %}
+{% load image_tags %}
 
 {% block title %}Mobile Design Patterns - {{ app.name }}{% endblock %}
-
-{% load thumbnail %}
 
 {% block left_sidebar_head %}
     <section class="application-header ios-application">
@@ -30,9 +31,11 @@
 
         <div class="lightbox-strip">
             {% for screenshot in screenshots %}
-                <figure class="lightbox-screen" data-screen-id="{{ screenshot.id }}">
-                    <img src="{{ screenshot.image.url }}" data-width="{{ screenshot.image.width }}" data-height="{{ screenshot.image.height }}" alt="">
-                </figure>
+                {% if screenshot.image.path|file_exists %}
+                    <figure class="lightbox-screen" data-screen-id="{{ screenshot.id }}">
+                        <img src="{{ screenshot.image.url }}" data-width="{{ screenshot.image.width }}" data-height="{{ screenshot.image.height }}" alt="">
+                    </figure>
+                {% endif %}
             {% endfor %}
         </div>
     </div>

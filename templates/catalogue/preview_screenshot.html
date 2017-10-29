@@ -19,7 +19,7 @@
             <h5>{% trans 'Tags' %}</h5>
             <ul>
                 {% for tag in screenshot.tags.all %}
-                    <li><a href="/?tag={{ tag.id }}">{{ tag.name }}</a></li>
+                    <li><a href="/?tags={{ tag.id }}">{{ tag.name }}</a></li>
                 {% endfor %}
             </ul>
         </section>
@@ -28,7 +28,7 @@
             <h5>{% trans 'Category' %}</h5>
             <ul>
                 {% for category in screenshot.categories.all %}
-                <li><a href="/?category={{ category.id }}">{{ category.name }}</a></li>
+                    <li><a href="/?categories={{ category.id }}">{{ category.name }}</a></li>
                 {% endfor %}
             </ul>
         </section>

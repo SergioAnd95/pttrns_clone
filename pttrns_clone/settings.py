@@ -90,7 +90,7 @@ TEMPLATES = [
         },
     },
 ]
-
+TEMPLATE_DEBUG = True
 WSGI_APPLICATION = 'pttrns_clone.wsgi.application'
 
 
