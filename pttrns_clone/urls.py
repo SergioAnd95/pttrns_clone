@@ -30,6 +30,7 @@ urlpatterns = i18n_patterns(
     url(r'^admin/', admin.site.urls),
     url(r'^', include('catalogue.urls')),
     url(r'^i18n/', include('django.conf.urls.i18n')),
+    url(r'^robots\.txt', include('robots.urls')),
     url(r'^sitemap\.xml$', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
     url(r'^(?P<url>.*/)$', flatpage),
 ) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

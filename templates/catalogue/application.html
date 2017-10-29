@@ -3,8 +3,22 @@
 {% load i18n %}
 {% load thumbnail %}
 {% load image_tags %}
+{% load solo_tags %}
 
-{% block title %}Mobile Design Patterns - {{ app.name }}{% endblock %}
+{% get_solo 'main.SiteMETA' as meta %}
+
+{% block meta-additional %}
+
+        <meta name="description" content="{{ app.description }}">
+        <meta name="keywords" content="{{ meta.keywords }}">
+        <meta name="author" content="{{ meta.author }}">
+
+        <meta property="og:title" content="{{ app.name }}">
+        <meta property="og:description" content="{{ app.description }}">
+        <meta property="og:image" content="{{ app.logo.url }}">
+    {% endblock %}
+
+{% block title %}{{ block.super }} - {{ app.name }}{% endblock %}
 
 {% block left_sidebar_head %}
     <section class="application-header ios-application">

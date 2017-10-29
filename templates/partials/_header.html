@@ -1,8 +1,9 @@
 {% load i18n %}
 {% load cache %}
+{% load static %}
 
 <header class="page-header">
-    {% cache 600 header %}<div class="column"><h1><a href="{% url 'index' %}">Pttrns</a></h1>{% endcache %}
+    {% cache 600 header %}<div class="column"><h1><a href="{% url 'index' %}"><img src="scrnsamillion{% static 'img/logo.png' %}"></a></h1>{% endcache %}
         <form class="lang-select ui-front" action="{% url 'set_language' %}" method="post">
             {% csrf_token %}
             <input name="next" type="hidden" value="{{ redirect_to }}" />

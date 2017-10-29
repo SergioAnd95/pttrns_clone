@@ -2,31 +2,31 @@
 {% load compress %}
 {% load cache %}
 {% load advertising %}
+{% load solo_tags %}
+
+{% get_solo 'main.SiteMETA' as meta %}
 
 <!DOCTYPE html>
 
 <html class="wf-myriadpro-n4-active wf-myriadpro-n6-active wf-active">
 <head>
-    {% cache 600 head_meta_css %}
-    {% block meta %}
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=1156">
+    {% block meta-additional %}
 
-        <meta name="viewport" content="width=1156">
-        <meta name="description" content="Pttrns is the finest collection of design patterns, resources and inspiration.">
-        <meta name="keywords" content="apps, ios, ui, design, visual design, patterns, pttrns, iphone, retina, screenshots, inspiration, mobile, iphone, ipad, android, lumia, apple watch, internet of things, smartwatch, iot, resources, framerjs, swift, sketch, photoshop, xcode, resources, articles">
-        <meta name="author" content="Beyond Labs, Inc.; Robin Raszka, @robinraszka;">
+        <meta name="description" content="{{ meta.description }}">
+        <meta name="keywords" content="{{ meta.keywords }}">
+        <meta name="author" content="{{ meta.author }}">
 
-        <meta property="og:url" content="https://facebook.com/pttrns.com">
-        <meta property="og:type" content="website">
-        <meta property="og:title" content="Design Pttrns">
-        <meta property="og:description" content="Check out the finest collection of design patterns, resources, mobile apps and inspiration">
+        <meta property="og:title" content="{{ meta.title }}">
+        <meta property="og:description" content="{{ meta.description }}">
+        <meta property="og:image" content="{{ meta.image.url }}">
     {% endblock %}
-    <title>{% block title %}Mobile Design Patterns - Pttrns{% endblock %}</title>
+    <title>{% block title %}{{ config.SITE_TITLE }}{% endblock %}</title>
 
-    <link href="https://s3.amazonaws.com/pttrns-2-0-static/favicon.ico" rel="shortcut icon">
-    <link href="https://s3.amazonaws.com/pttrns-2-0-static/favicon-152.png" rel="apple-touch-icon-precomposed" sizes="152x152">
-    <link href="http://pttrns.com/" hreflang="en-us" rel="alternate">
-
+    <link href="{{ config.FAVICO }}https://s3.amazonaws.com/pttrns-2-0-static/favicon.ico" rel="shortcut icon">
+    <link href="{{ config.FAVICO }}" rel="apple-touch-icon-precomposed" sizes="152x152">
+    {% cache 600 css %}
     {% compress css %}
         <style type="text/css">.tk-myriad-pro{font-family:"myriad-pro",sans-serif;}</style><style type="text/css">@font-face{font-family:tk-myriad-pro-n4;src:url(https://use.typekit.net/af/c46797/00000000000000000001709a/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3) format("woff2"),url(https://use.typekit.net/af/c46797/00000000000000000001709a/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3) format("woff"),url(https://use.typekit.net/af/c46797/00000000000000000001709a/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3) format("opentype");font-weight:400;font-style:normal;}@font-face{font-family:tk-myriad-pro-n6;src:url(https://use.typekit.net/af/ce7f6f/00000000000000000001709c/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n6&v=3) format("woff2"),url(https://use.typekit.net/af/ce7f6f/00000000000000000001709c/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n6&v=3) format("woff"),url(https://use.typekit.net/af/ce7f6f/00000000000000000001709c/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n6&v=3) format("opentype");font-weight:600;font-style:normal;}</style>
         <script>try{Typekit.load({ async: true });}catch(e){}</script>

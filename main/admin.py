@@ -3,12 +3,12 @@ from django.db import models
 from django.contrib.flatpages.models import FlatPage
 from django.contrib.flatpages.forms import FlatpageForm
 from django.contrib.flatpages.admin import FlatPageAdmin as FA
-from django.forms import CharField
 
 from froala_editor.widgets import FroalaEditor
+from modeltranslation.admin import TabbedTranslationAdmin
+from solo.admin import SingletonModelAdmin
 
-from modeltranslation.admin import TabbedTranslationAdmin, TranslationAdmin
-
+from .models import SiteMETA
 # Register your models here.
 
 
@@ -22,4 +22,7 @@ class FlatPageAdmin(TabbedTranslationAdmin, FA):
     formfield_overrides = {
         models.TextField: {'widget': FroalaEditor(attrs={'rows': 20, 'cols': 100})},
     }
+
+admin.site.register(SiteMETA, SingletonModelAdmin)
+
 from .admin_views import *

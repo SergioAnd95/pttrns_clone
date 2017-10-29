@@ -272,9 +272,10 @@ li>ul {
 }
 
 h1 {
-    width: 90px;
+    width: 125px;
     height: 30px;
-    background: url("../img/logo.svg") no-repeat center center;
+    background: url("../img/logo.png") no-repeat center center;
+    background-size: 125px 30px;
     text-indent: 100%;
     white-space: nowrap;
     overflow: hidden;

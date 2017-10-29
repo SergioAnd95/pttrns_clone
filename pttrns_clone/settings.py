@@ -55,6 +55,8 @@ INSTALLED_APPS = [
     'constance',
     'constance.backends.database',
     'froala_editor',
+    'robots',
+    'solo',
 
     #own apps
     'catalogue',
