@@ -17,6 +17,10 @@ class Category(models.Model):
     def __str__(self):
         return self.name
 
+    class Meta:
+        verbose_name = _('Category')
+        verbose_name_plural = _('Categories')
+
 
 class Platform(MPTTModel):
     name = models.CharField(_('Name'), max_length=30, unique=True)
@@ -31,6 +35,10 @@ class Platform(MPTTModel):
 
     def __str__(self):
         return self.name
+
+    class Meta:
+        verbose_name = _('Platform')
+        verbose_name_plural = _('Platforms')
 
 
 class App(models.Model):
@@ -48,6 +56,10 @@ class App(models.Model):
     @permalink
     def get_absolute_url(self):
         return 'application', (self.slug,)
+
+    class Meta:
+        verbose_name = _('App')
+        verbose_name_plural = _('Apps')
 
 
 class Screenshot(models.Model):

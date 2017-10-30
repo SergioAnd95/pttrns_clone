@@ -209,7 +209,7 @@ a {
 }
 
 a:hover {
-    color: #FF2851
+    color: #fe8249
 }
 
 ul {
@@ -391,7 +391,7 @@ h1 a {
 .primary-navigation a:hover,
 .screen-meta-filter a:hover,
 .screens-pager a:hover {
-    color: #FF2851
+    color: #fe8249
 }
 
 .primary-navigation {
@@ -875,7 +875,7 @@ h1 a {
 }
 
 .lightbox-control-close {
-    top:150px;
+    top:200px;
     left: 40px;
     font-size: 22px;
     color: #fff;
@@ -1755,7 +1755,7 @@ table tbody td a:first-of-type {
 }
 
 .form-block:hover{
-    color: #FF2851;
+    color: #fe8249;
 }
 
 .form-block input[type=radio], .form-block input[type=checkbox]{

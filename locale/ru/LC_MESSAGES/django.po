@@ -1,0 +1,258 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-10-30 11:34+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
+"%100>=11 && n%100<=14)? 2 : 3);\n"
+
+#: advertising/models.py:16
+msgid "top left"
+msgstr "вверху слева"
+
+#: advertising/models.py:17
+msgid "top right"
+msgstr "вверху справа"
+
+#: advertising/models.py:18
+msgid "bottom left"
+msgstr "внизу слева"
+
+#: advertising/models.py:19
+msgid "bottom right"
+msgstr "внизу справа"
+
+#: advertising/models.py:22
+msgid "Rank"
+msgstr "Ранг"
+
+#: advertising/models.py:23
+msgid "Position in page"
+msgstr "Позиция на странице"
+
+#: advertising/models.py:24 templates/admin/base.html:287
+msgid "Title"
+msgstr "Название"
+
+#: advertising/models.py:25 catalogue/models.py:48 catalogue/models.py:71
+msgid "When created"
+msgstr "Когда создан"
+
+#: advertising/models.py:26 catalogue/models.py:49
+msgid "When updated"
+msgstr "Когда обновлен"
+
+#: advertising/models.py:28
+msgid "Active"
+msgstr "Активный"
+
+#: advertising/models.py:34
+msgid "Advertisings"
+msgstr "Рекламы"
+
+#: advertising/models.py:35
+msgid "Advertising"
+msgstr "Реклама"
+
+#: catalogue/forms.py:16
+msgid "Popularity"
+msgstr "Популярности"
+
+#: catalogue/forms.py:17
+msgid "Date"
+msgstr "Новизне"
+
+#: catalogue/forms.py:24
+msgid "Sort by"
+msgstr "Сортиовать по"
+
+#: catalogue/forms.py:40 catalogue/models.py:41
+msgid "Platforms"
+msgstr "Платформы"
+
+#: catalogue/forms.py:49 catalogue/models.py:22 catalogue/models.py:77
+msgid "Categories"
+msgstr "Категории"
+
+#: catalogue/forms.py:56 templates/catalogue/preview_screenshot.html:19
+#: templates/jinja2/catalogue/preview_screenshot.html:19
+msgid "Tags"
+msgstr "Тэги"
+
+#: catalogue/forms.py:64
+msgid "Year"
+msgstr "Год"
+
+#: catalogue/models.py:14 catalogue/models.py:26 catalogue/models.py:46
+msgid "Name"
+msgstr "Название"
+
+#: catalogue/models.py:15 catalogue/models.py:27 catalogue/models.py:47
+msgid "Slug"
+msgstr ""
+
+#: catalogue/models.py:21 templates/catalogue/preview_screenshot.html:28
+#: templates/jinja2/catalogue/preview_screenshot.html:28
+msgid "Category"
+msgstr "Категория"
+
+#: catalogue/models.py:40
+msgid "Platform"
+msgstr "Платформа"
+
+#: catalogue/models.py:45
+msgid "Link"
+msgstr "Ссылка"
+
+#: catalogue/models.py:49
+msgid "Important for meta tags(seo)"
+msgstr "Важно для мета-тегов(seo)"
+
+#: catalogue/models.py:50
+msgid "Logo"
+msgstr "Лого"
+
+#: catalogue/models.py:51
+msgid "Description"
+msgstr "Описание"
+
+#: catalogue/models.py:61
+msgid "App"
+msgstr "Приложение"
+
+#: catalogue/models.py:62
+msgid "Apps"
+msgstr "Приложения"
+
+#: catalogue/models.py:70
+msgid "Image"
+msgstr "Изображение"
+
+#: catalogue/models.py:89
+msgid "Screenshot"
+msgstr ""
+
+#: catalogue/models.py:90
+msgid "Screenshots"
+msgstr "Скриншоты"
+
+#: pttrns_clone/settings.py:145
+msgid "English"
+msgstr "Английский"
+
+#: pttrns_clone/settings.py:146
+msgid "Russian"
+msgstr "Русский"
+
+#: templates/admin/base.html:57
+msgid "Clear cache"
+msgstr "Очистить кэш"
+
+#: templates/admin/base.html:59
+msgid "Welcome,"
+msgstr ""
+
+#: templates/admin/base.html:64 templates/admin/base.html:180
+msgid "View site"
+msgstr ""
+
+#: templates/admin/base.html:69 templates/admin/base.html:189
+msgid "Documentation"
+msgstr ""
+
+#: templates/admin/base.html:73
+msgid "Change password"
+msgstr ""
+
+#: templates/admin/base.html:75
+msgid "Log out"
+msgstr ""
+
+#: templates/admin/base.html:85 templates/admin/base.html:172
+msgid "Home"
+msgstr ""
+
+#: templates/admin/base.html:152
+msgid "back"
+msgstr ""
+
+#: templates/admin/base.html:233
+msgid "Applications"
+msgstr ""
+
+#: templates/admin/base.html:257
+msgid "Hide applications"
+msgstr ""
+
+#: templates/admin/base.html:258
+msgid "Show hidden"
+msgstr ""
+
+#: templates/admin/base.html:284 templates/admin/base.html:303
+msgid "Add bookmark"
+msgstr ""
+
+#: templates/admin/base.html:289
+msgid "URL"
+msgstr ""
+
+#: templates/admin/base.html:297
+msgid "Delete bookmark"
+msgstr ""
+
+#: templates/admin/base.html:298
+msgid "Are you sure want to delete this bookmark?"
+msgstr ""
+
+#: templates/admin/base.html:305
+msgid "bookmarks"
+msgstr ""
+
+#: templates/admin/base.html:313 templates/admin/base.html:320
+msgid "Remove"
+msgstr ""
+
+#: templates/admin/base.html:342
+msgid "Search"
+msgstr ""
+
+#: templates/admin/base.html:347
+msgid "Application page"
+msgstr ""
+
+#: templates/admin/base.html:373
+msgid "current theme"
+msgstr ""
+
+#: templates/admin/base.html:411
+msgid "Cache cleared"
+msgstr "Кэш очищен"
+
+#: templates/catalogue/application.html:44
+#: templates/jinja2/catalogue/application.html:27
+msgid "Go ot App shots"
+msgstr "Вернутся в приложение"
+
+#: templates/catalogue/preview_screenshot.html:6
+#: templates/jinja2/catalogue/preview_screenshot.html:6
+#, python-format
+msgid "%(app_name)s Screenshots"
+msgstr "%(app_name)s Скриншоты"
+
+#: templates/jinja2/partials/_footer.html:7 templates/partials/_footer.html:10
+msgid "Contact"
+msgstr "Контакт"

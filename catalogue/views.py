@@ -54,6 +54,7 @@ class AppScreenshotsView(AjaxListView):
         ctx['form'] = self.form
         ctx['app'] = self.object
         ctx['page_template'] = self.page_template
+        ctx['in_app'] = True
         return ctx
 
     def get_template_names(self):

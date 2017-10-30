@@ -2,7 +2,7 @@
   -webkit-tap-highlight-color: transparent;
   background-color: #fff;
   border-radius: 5px;
-  border: solid 1px #ff2851;
+  border: solid 1px #fe8249;
   box-sizing: border-box;
   clear: both;
   cursor: pointer;
@@ -28,10 +28,10 @@
   width: auto; }
 
   .nice-select:active, .nice-select.open, .nice-select:focus {
-    border-color: #ff2851; }
+    border-color: #fe8249; }
   .nice-select:after {
-    border-bottom: 2px solid #ff2851;
-    border-right: 2px solid #ff2851;
+    border-bottom: 2px solid #fe8249;
+    border-right: 2px solid #fe8249;
     content: '';
     display: block;
     height: 5px;
@@ -60,11 +60,11 @@
         -ms-transform: scale(1) translateY(0);
             transform: scale(1) translateY(0); }
   .nice-select.disabled {
-    border-color: #ededed;
+    border-color: #fe8249;
     color: #999;
     pointer-events: none; }
     .nice-select.disabled:after {
-      border-color: #cccccc; }
+      border-color: #fe8249; }
   .nice-select.wide {
     width: 100%; }
     .nice-select.wide .list {
@@ -136,5 +136,5 @@
 .no-csspointerevents .nice-select.open .list {
   display: block; }
 .nice-select .current {
-  color: #ff2851;
+  color: #fe8249;
 }

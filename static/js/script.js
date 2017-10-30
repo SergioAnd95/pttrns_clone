@@ -338,6 +338,7 @@ $('select').niceSelect();
 
         }
 
+        console.log(str);
         xmlhttp.open('GET', window.location.pathname+'?'+str, true);
         xmlhttp.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
         xmlhttp.send();
