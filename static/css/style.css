@@ -879,6 +879,10 @@ h1 a {
     left: 40px;
     font-size: 22px;
     color: #fff;
+    display: block;
+    padding: 10px;
+    border: 1px solid #fff;
+    border-radius: 5px;
 }
 
 
