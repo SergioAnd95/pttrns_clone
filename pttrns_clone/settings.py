@@ -43,12 +43,14 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'cloudinary_storage',
     'django.contrib.staticfiles',
     'django.contrib.sites',
     'django.contrib.flatpages',
 
     #third-party apps
     'taggit',
+    'cloudinary',
     'compressor',
     'sorl.thumbnail',
     'el_pagination',
@@ -219,6 +221,16 @@ CONSTANCE_CONFIG = {
 MIGRATION_MODULES = {
     'flatpages': 'main.flatpages_migrations',
 }
+
+# Cloudinary settings
+
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': os.environ.get('CLOUD_NAME'),
+    'API_KEY': os.environ.get('API_KEY'),
+    'API_SECRET': os.environ.get('API_SECRET')
+}
+
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 try:
     from .local_settings import *

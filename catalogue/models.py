@@ -7,6 +7,7 @@ from django.db.models import permalink
 from taggit.managers import TaggableManager
 from mptt.models import MPTTModel, TreeForeignKey
 from sorl.thumbnail import get_thumbnail
+
 # Create your models here.
 
 
@@ -47,8 +48,8 @@ class App(models.Model):
     slug = models.SlugField(_('Slug'), unique=True)
     when_created = models.DateTimeField(_('When created'), auto_now_add=True)
     when_updated = models.DateTimeField(_('When updated'), auto_now=True, help_text=_('Important for meta tags(seo)'))
-    logo = models.ImageField(_('Logo'), upload_to='apps')
-    description = models.CharField(_('Description'), max_length=500, )
+    logo = models.ImageField(_('Logo'), upload_to='apps/')
+    description = models.CharField(_('Description'), max_length=500, blank=True, null=True)
 
     def __str__(self):
         return self.name

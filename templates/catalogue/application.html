@@ -47,11 +47,11 @@
 
         <div class="lightbox-strip">
             {% for screenshot in screenshots %}
-                {% if screenshot.image.path|file_exists %}
+
                     <figure class="lightbox-screen" data-screen-id="{{ screenshot.id }}">
                         <img src="{{ screenshot.image.url }}" data-width="{{ screenshot.image.width }}" data-height="{{ screenshot.image.height }}" alt="">
                     </figure>
-                {% endif %}
+
             {% endfor %}
         </div>
     </div>

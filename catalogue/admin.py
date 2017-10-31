@@ -1,8 +1,10 @@
 from django.contrib import admin
+from django.conf.urls import url
 
 from modeltranslation.admin import TabbedTranslationAdmin
 
 from . import models
+from . import admin_views
 # Register your models here.
 
 
@@ -31,6 +33,19 @@ class AppAdmin(TabbedTranslationAdmin):
         ScreenshotInlineAdmin,
     ]
     prepopulated_fields = {'slug': ('name',)}
+
+    change_list_template = 'catalogue/admin/change_list.html'
+
+    def get_urls(self):
+        urls = super().get_urls()
+        custom_urls = [
+            url(
+                r'import_items/$',
+                self.admin_site.admin_view(admin_views.ProcessAppFormView.as_view()),
+                name='import_from_file'
+            )
+        ]
+        return custom_urls + urls
 
 
 @admin.register(models.Screenshot)

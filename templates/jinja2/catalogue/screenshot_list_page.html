@@ -1,8 +1,0 @@
-{% load el_pagination_tags %}
-
-{% paginate screenshots %}
-
-{% for screenshot in screenshots %}
-    {% include 'catalogue/preview_screenshot.html' with in_app=in_app|default:False %}
-{% endfor %}
-{% show_more %}
