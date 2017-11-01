@@ -52,9 +52,9 @@ class ProcessAppFormView(FormView):
         while current_row < sheet.nrows:
             if not sheet.cell_value(current_row, 0) or current_row == start_pos:
                 image_list.append({
-                    'url': sheet.cell_value(current_row, 5),
-                    'categories': sheet.cell_value(current_row, 6),
-                    'tags': sheet.cell_value(current_row, 7),
+                    'url': sheet.cell_value(current_row, 7),
+                    'categories': sheet.cell_value(current_row, 8),
+                    'tags': sheet.cell_value(current_row, 9),
                     'platform': sheet.cell_value(current_row, 2)
                 })
             else:
@@ -67,8 +67,8 @@ class ProcessAppFormView(FormView):
         categories = []
         for category_name in categories_names:
             if not category_name in self.categogry_cache:
-                if Category.objects.filter(name=category_name).exists():
-                    cat = Category.objects.get(name=category_name)
+                if Category.objects.filter(name__iexact=category_name).exists():
+                    cat = Category.objects.get(name__iexact=category_name)
                 else:
                     cat = Category.objects.create(
                         name=category_name,
@@ -81,8 +81,8 @@ class ProcessAppFormView(FormView):
 
     def get_platform(self, platform_name):
         if not platform_name in self.platform_cache:
-            if Platform.objects.filter(name=platform_name).exists():
-                platform = Platform.objects.get(name=platform_name)
+            if Platform.objects.filter(name__iexact=platform_name).exists():
+                platform = Platform.objects.get(name__iexact=platform_name)
             else:
                 platform = Platform.objects.create(
                     name=platform_name,
@@ -112,7 +112,9 @@ class ProcessAppFormView(FormView):
                     name_en=app_name,
                     name_ru=first_sheet.cell_value(current_row, 1),
                     slug=slugify(app_name),
-                    link=first_sheet.cell_value(current_row, 3)
+                    link=first_sheet.cell_value(current_row, 3),
+                    developer_name=first_sheet.cell_value(current_row, 5),
+                    developer_link=first_sheet.cell_value(current_row, 6)
                 )
             except Exception as e:
                 self.errors.update({app_name: e})

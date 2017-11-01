@@ -50,6 +50,8 @@ class App(models.Model):
     when_updated = models.DateTimeField(_('When updated'), auto_now=True, help_text=_('Important for meta tags(seo)'))
     logo = models.ImageField(_('Logo'), upload_to='apps/')
     description = models.CharField(_('Description'), max_length=500, blank=True, null=True, default='qka')
+    developer_name = models.CharField(_('Developer name'), max_length=50, blank=True, null=True)
+    developer_link = models.URLField(_('Developer link'), blank=True, null=True)
 
     def __str__(self):
         return self.name

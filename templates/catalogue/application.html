@@ -30,6 +30,13 @@
         <h2>{{ app.name }}</h2>
     </section>
 {% endblock %}
+{% block left_sidebar_footer %}
+    {% if app.developer_name %}
+     <section class="application-footer">
+         <a class="application-publisher" href="{{ app.developer_link }}" title="Midnight Labs LLC" target="_blank">© {{ app.developer_name }}</a>
+     </section>
+    {% endif %}
+{% endblock %}
 
 {% block content %}
     <div id="screenshots">
@@ -47,11 +54,9 @@
 
         <div class="lightbox-strip">
             {% for screenshot in screenshots %}
-
                     <figure class="lightbox-screen" data-screen-id="{{ screenshot.id }}">
                         <img src="{{ screenshot.image.url }}" data-width="{{ screenshot.image.width }}" data-height="{{ screenshot.image.height }}" alt="">
                     </figure>
-
             {% endfor %}
         </div>
     </div>
