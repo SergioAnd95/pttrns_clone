@@ -102,6 +102,7 @@
           <aside class="sidebar right-sidebar">
             {% show_advertisings 2 %}
               {% block right_sidebar %}
+                  {% comment %}
                   <section class="filter sort-filter">
                       <h3>{{ form.sort_by.label }}</h3>
                       <ul>
@@ -128,6 +129,7 @@
                           </li>
                       </ul>
                   </section>
+                  {% endcomment %}
                   <section class="filter tags-filter">
                       <h3>{{ form.tags.label }}</h3>
                       <ul>

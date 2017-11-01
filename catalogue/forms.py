@@ -17,6 +17,7 @@ class ScreenshotFilterForm(forms.Form):
             (BY_DATE, _('Date'))
         )
 
+    """
     sort_by = forms.ChoiceField(
         choices=SortChoices.CHOICES,
         widget=forms.RadioSelect,
@@ -24,6 +25,7 @@ class ScreenshotFilterForm(forms.Form):
         label=_('Sort by'),
         initial=SortChoices.BY_DATE
     )
+    """
 
     def __init__(self, *args, **kwargs):
         app = kwargs.pop('app', '')
@@ -31,7 +33,7 @@ class ScreenshotFilterForm(forms.Form):
 
         categories = Category.objects.filter(screenshots__in=self.screenshots).distinct()
         tags = Tag.objects.filter(screenshot__in=self.screenshots).distinct()
-        years = [[d.year, d.year] for d in self.screenshots.dates('when_created', 'year', order='DESC').distinct()]
+        #years = [[d.year, d.year] for d in self.screenshots.dates('when_created', 'year', order='DESC').distinct()]
         platforms = Platform.objects.filter(screenshots__in=self.screenshots).distinct()
 
         super().__init__(*args, **kwargs)
@@ -59,14 +61,14 @@ class ScreenshotFilterForm(forms.Form):
             required=False,
             empty_label=None
         )
-
+        """
         self.fields['year'] = forms.ChoiceField(
             label=_('Year'),
             choices=years,
             required=False,
             widget=forms.RadioSelect
         )
-
+        """
     def search(self):
         qs = self.screenshots
         if not self.is_valid():

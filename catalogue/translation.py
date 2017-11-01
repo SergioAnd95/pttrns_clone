@@ -1,4 +1,5 @@
 from modeltranslation.translator import register, TranslationOptions
+from taggit.models import Tag
 
 from .models import Category, App
 
@@ -16,4 +17,4 @@ class ResourceTranslation(TranslationOptions):
     """
     Translation settings for App model
     """
-    fields = ('name', )
+    fields = ('name', 'description')

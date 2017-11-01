@@ -22,7 +22,7 @@ class PlatformAdmin(admin.ModelAdmin):
 
 class ScreenshotInlineAdmin(admin.StackedInline):
     model = models.Screenshot
-    fields = ('admin_image', 'image', 'when_created', 'app', 'platform', 'categories')
+    fields = ('admin_image', 'image', 'when_created', 'app', 'platform', 'categories', 'tags')
     readonly_fields = ('admin_image', 'when_created')
 
 
@@ -50,6 +50,6 @@ class AppAdmin(TabbedTranslationAdmin):
 
 @admin.register(models.Screenshot)
 class Screenshot(admin.ModelAdmin):
-    fields = ('admin_image', 'image', 'when_created', 'app', 'platform', 'categories')
+    fields = ('admin_image', 'image', 'when_created', 'app', 'platform', 'categories', 'tags')
     readonly_fields = ('admin_image', 'when_created')
     list_display = ('admin_image', 'app', 'platform', 'when_created')

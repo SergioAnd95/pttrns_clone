@@ -44,12 +44,12 @@ class Platform(MPTTModel):
 
 class App(models.Model):
     link = models.URLField(_('Link'))
-    name = models.CharField(_('Name'), max_length=30)
+    name = models.CharField(_('Name'), max_length=200)
     slug = models.SlugField(_('Slug'), unique=True)
     when_created = models.DateTimeField(_('When created'), auto_now_add=True)
     when_updated = models.DateTimeField(_('When updated'), auto_now=True, help_text=_('Important for meta tags(seo)'))
     logo = models.ImageField(_('Logo'), upload_to='apps/')
-    description = models.CharField(_('Description'), max_length=500, blank=True, null=True)
+    description = models.CharField(_('Description'), max_length=500, blank=True, null=True, default='qka')
 
     def __str__(self):
         return self.name
