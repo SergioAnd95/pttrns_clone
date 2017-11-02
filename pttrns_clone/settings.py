@@ -209,9 +209,10 @@ COMPRESS_ENABLED = True
 CONSTANCE_BACKEND = 'constance.backends.database.DatabaseBackend'
 
 CONSTANCE_CONFIG = {
-    'CONTACT_EMAIL': ('example@mail.com', 'Contact email'),
-    'FOOTER_TEXT': ('© Beyond Labs Inc. All rights reserved.', 'Text for footer part'),
-    'TWITTER': ('https://twitter.com/', 'Twitter link')
+    'CONTACT_EMAIL': ('example@mail.com', _('Contact email')),
+    'FOOTER_TEXT': ('© Beyond Labs Inc. All rights reserved.', _('Text for footer part')),
+    'SITE_TITLE': ('', _('Site title')),
+    'TWITTER': ('https://twitter.com/', _('Twitter link'))
 }
 
 

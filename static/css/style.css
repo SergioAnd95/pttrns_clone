@@ -1756,6 +1756,8 @@ table tbody td a:first-of-type {
 
 .form-block label{
     cursor: pointer;
+    display: inline-block;
+    border-bottom: 1px solid #efefef;
 }
 
 .form-block:hover{
