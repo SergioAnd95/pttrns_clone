@@ -22,7 +22,7 @@
     {% if errors %}
         <p>{% trans 'Erros' %}:</p>
         <ul>
-        {% for resource_name, error in brand_errors.items %}
+        {% for resource_name, error in errors.items %}
             <li>
                 <p>{{ resource_name }} - {{ error }}</p>
             </li>

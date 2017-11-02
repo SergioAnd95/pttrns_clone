@@ -26,7 +26,7 @@ class ProcessAppFormView(FormView):
         error_ctx = self.process_item(file)
         if error_ctx:
             return render(self.request, 'catalogue/admin/import_errors.html',
-                          {'error': error_ctx, 'opts': App._meta})
+                          {'errors': error_ctx, 'opts': App._meta})
         return super().form_valid(form)
 
     def save_image_from_url(self, field, image_url, app_name):
@@ -67,8 +67,8 @@ class ProcessAppFormView(FormView):
         categories = []
         for category_name in categories_names:
             if not category_name in self.categogry_cache:
-                if Category.objects.filter(name__iexact=category_name).exists():
-                    cat = Category.objects.get(name__iexact=category_name)
+                if Category.objects.filter(name_en__iexact=category_name).exists():
+                    cat = Category.objects.get(name_en__iexact=category_name)
                 else:
                     cat = Category.objects.create(
                         name=category_name,
