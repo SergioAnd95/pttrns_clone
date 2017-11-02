@@ -72,7 +72,7 @@ class ProcessAppFormView(FormView):
                     cat = Category.objects.get(slug__iexact=n)
                 else:
                     cat = Category.objects.create(
-                        name=category_name,
+                        name_en=category_name,
                         slug=slugify(category_name)
                     )
 
