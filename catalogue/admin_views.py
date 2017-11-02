@@ -66,9 +66,10 @@ class ProcessAppFormView(FormView):
     def get_categories(self, *categories_names):
         categories = []
         for category_name in categories_names:
+            n = slugify(category_name)
             if not category_name in self.categogry_cache:
-                if Category.objects.filter(name_en__iexact=category_name).exists():
-                    cat = Category.objects.get(name_en__iexact=category_name)
+                if Category.objects.filter(slug__iexact=n).exists():
+                    cat = Category.objects.get(slug__iexact=n)
                 else:
                     cat = Category.objects.create(
                         name=category_name,
