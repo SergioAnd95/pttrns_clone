@@ -1762,6 +1762,9 @@ table tbody td a:first-of-type {
 
 .form-block:hover{
     color: #fe8249;
+}
+
+.form-block:hover label{
     border-bottom: 1px solid #fe8249;
 }
 
