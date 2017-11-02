@@ -232,6 +232,8 @@ CLOUDINARY_STORAGE = {
 
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
+TEMPLATE_DEBUG = True
+
 try:
     from .local_settings import *
 except ImportError:
