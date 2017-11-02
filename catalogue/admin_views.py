@@ -2,7 +2,6 @@ from django.views.generic import FormView
 from django.core.files.base import File, ContentFile
 from django.utils.text import slugify
 from django.shortcuts import render
-from django.core.files.temp import NamedTemporaryFile
 
 import requests
 
@@ -10,7 +9,7 @@ import xlrd
 from urllib import parse
 
 from .forms import ScreenshotsAdminProcess
-from .models import App, Screenshot, Category, Platform
+from .models import App, Category, Platform
 
 
 class ProcessAppFormView(FormView):
@@ -125,10 +124,10 @@ class ProcessAppFormView(FormView):
                 screenshot = app.screenshots.create(
                     platform=self.get_platform(img['platform']),
                 )
-                if img['categories']:
-                    screenshot.categories = self.get_categories(*img['categories'].split(', '))
-                if img['tags']:
-                    screenshot.tags.add(*img['tags'].split(', '))
+
+                screenshot.categories = self.get_categories(*img['categories'].split(', '))
+
+                screenshot.tags.add(*img['tags'].split(', '))
 
                 self.save_image_from_url(screenshot.image, img['url'], app_name)
                 screenshot.save()

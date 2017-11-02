@@ -10,7 +10,6 @@ from sorl.thumbnail import get_thumbnail
 
 # Create your models here.
 
-
 class Category(models.Model):
     name = models.CharField(_('Name'), max_length=30, unique=True)
     slug = models.SlugField(_('Slug'), unique=True)

@@ -2,8 +2,9 @@
 {% load i18n %}
 
 <figure class="screen" data-screen-id="{{ screenshot.id }}">
-    {% cloudinary screenshot.image.url width=250 height=445 %}
-
+    {% if screenshot.image %}
+        {% cloudinary screenshot.image.url width=250 height=445 %}
+    {% endif %}
     <figcaption class="screen-meta">
         {% if in_app %}
             <a class="screen-meta-link" href="{{ screenshot.app.get_absolute_url }}#{{ screenshot.id }}" data-toggle="lightbox"></a>

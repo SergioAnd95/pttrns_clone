@@ -155,6 +155,8 @@ LOCALE_PATHS = (
 
 MODELTRANSLATION_LANGUAGES = ('en', 'ru')
 
+MODELTRANSLATION_PREPOPULATE_LANGUAGE = 'en'
+
 MODELTRANSLATION_TRANSLATION_FILES = (
     'catalogue.translation',
     'main.translation',
