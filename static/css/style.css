@@ -1762,6 +1762,7 @@ table tbody td a:first-of-type {
 
 .form-block:hover{
     color: #fe8249;
+    border-bottom: 1px solid #fe8249;
 }
 
 .form-block input[type=radio], .form-block input[type=checkbox]{
