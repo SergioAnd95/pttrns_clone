@@ -12,10 +12,15 @@ class AllScreenshotsView(AjaxListView):
     page_template = 'catalogue/screenshot_list_page.html'
     context_object_name = 'screenshots'
 
+    def post(post, request, *args, **kwargs):
+        return super().get(request, *args, **kwargs)
+
     def get_queryset(self):
         self.form = ScreenshotFilterForm()
-        if self.request.GET:
-            self.form = ScreenshotFilterForm(self.request.GET)
+
+        req = self.request.POST if self.request.POST else self.request.GET
+        if req:
+            self.form = ScreenshotFilterForm(req)
 
         return self.form.search()
 
@@ -43,8 +48,9 @@ class AppScreenshotsView(AjaxListView):
 
     def get_queryset(self):
         self.form = ScreenshotFilterForm(app=self.object)
-        if self.request.GET:
-            self.form = ScreenshotFilterForm(self.request.GET, app=self.object)
+        req = self.request.POST if self.request.POST else self.request.GET
+        if req:
+            self.form = ScreenshotFilterForm(req, app=self.object)
 
         return self.form.search()
 

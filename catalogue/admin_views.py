@@ -125,8 +125,11 @@ class ProcessAppFormView(FormView):
                 screenshot = app.screenshots.create(
                     platform=self.get_platform(img['platform']),
                 )
-                screenshot.categories = self.get_categories(*img['categories'].split(', '))
-                screenshot.tags.add(*img['tags'].split(', '))
+                if img['categories']:
+                    screenshot.categories = self.get_categories(*img['categories'].split(', '))
+                if img['tags']:
+                    screenshot.tags.add(*img['tags'].split(', '))
+
                 self.save_image_from_url(screenshot.image, img['url'], app_name)
                 screenshot.save()
             current_row = next_row_pos

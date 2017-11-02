@@ -23,6 +23,9 @@ class FlatPageAdmin(TabbedTranslationAdmin, FA):
         models.TextField: {'widget': FroalaEditor(attrs={'rows': 20, 'cols': 100})},
     }
 
-admin.site.register(SiteMETA, SingletonModelAdmin)
+
+@admin.register(SiteMETA)
+class SiteMetaModelAdmin(SingletonModelAdmin, TabbedTranslationAdmin):
+    pass
 
 from .admin_views import *

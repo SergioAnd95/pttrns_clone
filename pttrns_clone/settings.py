@@ -27,7 +27,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '0d+(2%hyv3lkx7_--%%&5z=$75bk4^pkdy-n0+)uhft$ai)@jk'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -69,6 +69,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -181,7 +182,7 @@ STATICFILES_FINDERS = (
     'compressor.finders.CompressorFinder',
 )
 
-STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Media files
 
@@ -206,12 +207,18 @@ COMPRESS_ENABLED = True
 
 # Django-constance settings
 
+CONSTANCE_ADDITIONAL_FIELDS = {
+    'image_field': ['django.forms.ImageField', {}]
+}
+
+
 CONSTANCE_BACKEND = 'constance.backends.database.DatabaseBackend'
 
 CONSTANCE_CONFIG = {
     'CONTACT_EMAIL': ('example@mail.com', _('Contact email')),
     'FOOTER_TEXT': ('© Beyond Labs Inc. All rights reserved.', _('Text for footer part')),
     'SITE_TITLE': ('', _('Site title')),
+    'FAVICO': ('default.ico', 'Image that used fo favico', 'image_field'),
     'TWITTER': ('https://twitter.com/', _('Twitter link'))
 }
 
@@ -232,8 +239,6 @@ CLOUDINARY_STORAGE = {
 }
 
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
-
-TEMPLATE_DEBUG = True
 
 try:
     from .local_settings import *

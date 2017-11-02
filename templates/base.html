@@ -26,8 +26,8 @@
     {% endblock %}
     <title>{% block title %}{{ config.SITE_TITLE }}{% endblock %}</title>
 
-    <link href="{{ config.FAVICO }}https://s3.amazonaws.com/pttrns-2-0-static/favicon.ico" rel="shortcut icon">
-    <link href="{{ config.FAVICO }}" rel="apple-touch-icon-precomposed" sizes="152x152">
+    <link href="{% if meta.favico %}{{ meta.favico.url }}{% else %}{% static 'img/logo.png' %}{% endif %}" rel="shortcut icon">
+    <link href="{% if meta.favico %}{{ meta.favico.url }}{% else %}{% static 'img/logo.png' %}{% endif %}" rel="apple-touch-icon-precomposed" sizes="152x152">
     {% cache 600 css %}
     {% compress css %}
         <style type="text/css">.tk-myriad-pro{font-family:"myriad-pro",sans-serif;}</style><style type="text/css">@font-face{font-family:tk-myriad-pro-n4;src:url(https://use.typekit.net/af/c46797/00000000000000000001709a/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3) format("woff2"),url(https://use.typekit.net/af/c46797/00000000000000000001709a/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3) format("woff"),url(https://use.typekit.net/af/c46797/00000000000000000001709a/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3) format("opentype");font-weight:400;font-style:normal;}@font-face{font-family:tk-myriad-pro-n6;src:url(https://use.typekit.net/af/ce7f6f/00000000000000000001709c/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n6&v=3) format("woff2"),url(https://use.typekit.net/af/ce7f6f/00000000000000000001709c/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n6&v=3) format("woff"),url(https://use.typekit.net/af/ce7f6f/00000000000000000001709c/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n6&v=3) format("opentype");font-weight:600;font-style:normal;}</style>

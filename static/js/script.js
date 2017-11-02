@@ -273,8 +273,25 @@ $(document)
 $grid.on('DOMNodeInserted', function(e){$grid.masonry( 'appended', $(".screen:not([style])"))});
 $('select').niceSelect();
 
-(function (grid) {
+function getCookie(name) {
+    var cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        var cookies = document.cookie.split(';');
+        for (var i = 0; i < cookies.length; i++) {
+            var cookie = jQuery.trim(cookies[i]);
+            // Does this cookie string begin with the name we want?
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}
 
+
+(function (grid) {
+    var csrftoken = getCookie('csrftoken');
     var objStr = {};
     var allFilters = document.querySelectorAll(".filter");
     var allCheckedRadio = document.querySelectorAll('.filter input:checked');
@@ -313,7 +330,7 @@ $('select').niceSelect();
             }
 
         });
-    }
+    };
 
     function AJAX(objStr) {
         var str = '';
@@ -339,8 +356,10 @@ $('select').niceSelect();
         }
 
         console.log(str);
-        xmlhttp.open('GET', window.location.pathname+'?'+str, true);
+
+        xmlhttp.open('POST', window.location.pathname+'?'+str, true);
         xmlhttp.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+        xmlhttp.setRequestHeader("X-CSRFToken", csrftoken);
         xmlhttp.send();
     }
 })($grid);
