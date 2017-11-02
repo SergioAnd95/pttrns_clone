@@ -86,7 +86,7 @@ class ProcessAppFormView(FormView):
                 platform = Platform.objects.get(name__iexact=platform_name)
             else:
                 platform = Platform.objects.create(
-                    name=platform_name,
+                    name_en=platform_name,
                     slug=slugify(platform_name)
                 )
 
