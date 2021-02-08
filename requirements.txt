@@ -19,7 +19,7 @@ django-robots==3.0
 django-solo==1.1.2
 django-taggit==0.22.1
 gunicorn==19.4.5
-httplib2==0.10.3
+httplib2==0.19.0
 idna==2.6
 Jinja2==2.9.6
 MarkupSafe==1.0
