@@ -21,7 +21,7 @@ django-taggit==0.22.1
 gunicorn==19.4.5
 httplib2==0.10.3
 idna==2.6
-Jinja2==2.9.6
+Jinja2==2.11.3
 MarkupSafe==1.0
 mock==2.0.0
 oauth2client==4.1.2
